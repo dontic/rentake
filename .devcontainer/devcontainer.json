@@ -1,0 +1,26 @@
+{
+	"name": "Rentake Devcontainer",
+	// Docker compose file to use (relative to the directory of this file)
+	"dockerComposeFile": "docker-compose.yml",
+	// Service to use from the docker compose file
+	"service": "rentake-backend",
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"mhutchie.git-graph",
+				"GitHub.copilot",
+				"ms-python.black-formatter",
+				"stuart.unique-window-colors"
+			]
+		}
+	},
+	// Mounts
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+	]
+}
