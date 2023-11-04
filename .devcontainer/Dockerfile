@@ -14,17 +14,17 @@ RUN apt update && apt install -y git
 RUN pip install -U pipenv
 
 # Make a temporary directory for the pipenv
-# RUN mkdir /tmp/pipenv
+RUN mkdir /tmp/pipenv
 
 # Set the working directory
-# WORKDIR /tmp/pipenv
+WORKDIR /tmp/pipenv
 
 # Install pipenv requirements
-# COPY Pipfile Pipfile.lock /tmp/pipenv/
-# RUN pipenv install --system
+COPY Pipfile Pipfile.lock /tmp/pipenv/
+RUN pipenv install --system
 
 # Remove the temporary directory
-# RUN rm -rf /tmp/pipenv
+RUN rm -rf /tmp/pipenv
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
