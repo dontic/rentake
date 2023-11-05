@@ -53,7 +53,7 @@ services:
       - static_volume:/app/django_static
       - media_volume:/app/media
     ports:
-      - 80:80
+      - 81:80
     depends_on:
       - backend
 
