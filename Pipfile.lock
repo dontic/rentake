@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "960e7108023219d46404b50b33ed42e36f6caab43659ce503070c1498610bd6b"
+            "sha256": "0f6ae32b2038b78754f92cacee39bde6919a339ae2148c10b48e316025377335"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -80,6 +80,12 @@
             "markers": "python_version >= '3.6'",
             "version": "==0.3.0"
         },
+        "cron-descriptor": {
+            "hashes": [
+                "sha256:b6ff4e3a988d7ca04a4ab150248e9f166fb7a5c828a85090e75bcc25aa93b4dd"
+            ],
+            "version": "==1.4.0"
+        },
         "django": {
             "hashes": [
                 "sha256:8e0f1c2c2786b5c0e39fe1afce24c926040fad47c8ea8ad30aaf1188df29fc41",
@@ -88,6 +94,22 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==4.2.7"
+        },
+        "django-celery-beat": {
+            "hashes": [
+                "sha256:ae460faa5ea142fba0875409095d22f6bd7bcc7377889b85e8cab5c0dfb781fe",
+                "sha256:cd0a47f5958402f51ac0c715bc942ae33d7b50b4e48cba91bc3f2712be505df1"
+            ],
+            "index": "pypi",
+            "version": "==2.5.0"
+        },
+        "django-timezone-field": {
+            "hashes": [
+                "sha256:916d0fd924443462f099f02122cc38d6a6e901ea17f1206c343836199df8bc49",
+                "sha256:ed28d3ff8e3500f2bc173cdf1aab7a3244ef607d06ad890611512de1bae6074d"
+            ],
+            "markers": "python_version >= '3.8' and python_version < '4.0'",
+            "version": "==6.0.1"
         },
         "kombu": {
             "hashes": [
@@ -104,6 +126,13 @@
             ],
             "markers": "python_full_version >= '3.7.0'",
             "version": "==3.0.39"
+        },
+        "python-crontab": {
+            "hashes": [
+                "sha256:6d5ba3c190ec76e4d252989a1644fcb233dbf53fbc8fceeb9febe1657b9fb1d4",
+                "sha256:79fb7465039ddfd4fb93d072d6ee0d45c1ac8bf1597f0686ea14fd4361dba379"
+            ],
+            "version": "==3.0.0"
         },
         "python-dateutil": {
             "hashes": [
