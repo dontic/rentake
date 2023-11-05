@@ -8,6 +8,7 @@ django = "*"
 celery = "*"
 redis = "*"
 django-celery-beat = "*"
+gunicorn = "*"
 
 [dev-packages]
 
