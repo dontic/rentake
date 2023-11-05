@@ -41,7 +41,9 @@ class RentalAsset(models.Model):
 
 
 class Price(models.Model):
-    rental_asset = models.ForeignKey(RentalAsset, on_delete=models.CASCADE)
+    rental_asset = models.ForeignKey(
+        RentalAsset, on_delete=models.CASCADE, related_name="prices"
+    )
     price = models.DecimalField(max_digits=10, decimal_places=2)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
