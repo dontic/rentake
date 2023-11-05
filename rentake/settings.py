@@ -17,15 +17,13 @@ load_dotenv(BASE_DIR / ".env")
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-j0saf5_)r%bkyn_ma&^obdcrayel!lfz0a4je$$z$700sich6l"
+SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-#-+!_&=q^&+^+!_&=q^&+^")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
-# Import allowed hosts from environment variable
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 
-# CSRF allowed origins
 CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "localhost").split(",")
 
 # Application definition
