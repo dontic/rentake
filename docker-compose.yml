@@ -11,7 +11,7 @@ services:
     build:
       dockerfile: Dockerfile
     restart: unless-stopped
-    # env_file: .env
+    env_file: .env
     entrypoint: /app/entrypoint_backend.sh
     volumes:
       - ./data:/app/data  # Map a volume for the tool data, such as the database
@@ -24,7 +24,7 @@ services:
     build:
       dockerfile: Dockerfile
     restart: unless-stopped
-    # env_file: .env
+    env_file: .env
     entrypoint: /app/entrypoint_celery_worker.sh
     volumes:
       - ./data:/app/data
