@@ -6,4 +6,4 @@ do
 done
 
 # run a worker :)
-celery -A backend worker -l info --concurrency 1 -E
+celery -A rentake worker -l info --concurrency 1 -E

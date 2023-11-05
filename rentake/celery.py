@@ -2,12 +2,11 @@
 
 import os
 from celery import Celery
-from celery.signals import setup_logging  # noqa
 
 # Set the default Django settings module for the 'celery' program.
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rentake.settings")
 
-app = Celery("backend")
+app = Celery("rentake")
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.

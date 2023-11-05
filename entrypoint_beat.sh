@@ -6,4 +6,4 @@ do
 done
 
 # run celery beat
-celery -A backend beat -l info
+celery -A rentake beat -l info
