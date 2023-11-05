@@ -1,0 +1,3 @@
+urlpatterns = []
+
+urlpatterns = urlpatterns
