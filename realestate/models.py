@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 
 
 class Tenant(models.Model):
@@ -38,6 +39,17 @@ class RentalAsset(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.catastral_reference}"
+
+    # Make fields mandatory depending on the type of asset
+    def clean(self):
+        if self.type == self.HOUSE_TYPE:
+            if not self.number_of_bedrooms:
+                raise ValidationError("A house must have at least one bedroom")
+            if not self.number_of_bathrooms:
+                raise ValidationError("A house must have at least one bathroom")
+        elif self.type == self.PARKING_TYPE:
+            if not self.parking_number:
+                raise ValidationError("A parking must have a parking number")
 
 
 class Price(models.Model):
