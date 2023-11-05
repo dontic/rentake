@@ -4,7 +4,7 @@ services:
   redis:
     restart: unless-stopped
     image: redis:7.2.0-alpine
-    prots:
+    ports:
       - 6380:6379
 
   backend:
