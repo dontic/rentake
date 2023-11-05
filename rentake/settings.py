@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -6,6 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Create the data directory if it doesn't exist
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
+
+# Load environment variables from .env file
+load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -17,8 +22,11 @@ SECRET_KEY = "django-insecure-j0saf5_)r%bkyn_ma&^obdcrayel!lfz0a4je$$z$700sich6l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+# Import allowed hosts from environment variable
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 
+# CSRF allowed origins
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "localhost").split(",")
 
 # Application definition
 

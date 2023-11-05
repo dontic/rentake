@@ -9,6 +9,7 @@ celery = "*"
 redis = "*"
 django-celery-beat = "*"
 gunicorn = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
