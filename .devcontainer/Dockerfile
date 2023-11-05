@@ -21,7 +21,7 @@ WORKDIR /tmp/pipenv
 
 # Install pipenv requirements
 COPY Pipfile Pipfile.lock /tmp/pipenv/
-RUN pipenv install --system
+RUN pipenv install
 
 # Remove the temporary directory
 RUN rm -rf /tmp/pipenv
