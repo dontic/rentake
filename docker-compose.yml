@@ -1,0 +1,62 @@
+name: rentake
+
+services:
+  redis:
+    restart: unless-stopped
+    image: redis:7.2.0-alpine
+    expose:
+      - 6379
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    # env_file: .env
+    entrypoint: /app/entrypoint_backend.sh
+    volumes:
+      - ./data:/app/data  # Map a volume for the tool data, such as the database
+      - static_volume:/app/django_static  # Static volume to share with nginx
+      - media_volume:/app/media  # Media volume to share with nginx
+    ports:
+      - 8000:8000
+
+  celery-worker:
+    build:
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    # env_file: .env
+    entrypoint: /app/entrypoint_celery_worker.sh
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - backend
+      - redis
+
+  celery-beat:
+    build:
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    entrypoint: /app/entrypoint_celery_beat.sh
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - backend
+      - redis
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d  # Map a volume for the nginx configuration
+      - static_volume:/app/django_static
+      - media_volume:/app/media
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+
+volumes:
+  static_volume: {}
+  media_volume: {}
