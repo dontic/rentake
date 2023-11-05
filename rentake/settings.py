@@ -122,8 +122,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Celery settings
 # Celery runs on another container, so we need to specify the broker and result backend
-CELERY_BROKER_URL = "redis://redis:6380/0"
-CELERY_RESULT_BACKEND = "redis://redis:6380/0"
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 # Set celery beat scheduler to database
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"

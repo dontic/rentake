@@ -4,8 +4,8 @@ services:
   redis:
     restart: unless-stopped
     image: redis:7.2.0-alpine
-    ports:
-      - 6380:6379
+    expose:
+      - 6379
 
   backend:
     build:
@@ -18,7 +18,7 @@ services:
       - static_volume:/app/django_static  # Static volume to share with nginx
       - media_volume:/app/media  # Media volume to share with nginx
     ports:
-      - 8001:8000
+      - 8000:8000
 
   celery-worker:
     build:
@@ -53,7 +53,7 @@ services:
       - static_volume:/app/django_static
       - media_volume:/app/media
     ports:
-      - 81:80
+      - 80:80
     depends_on:
       - backend
 
