@@ -18,7 +18,7 @@ then
 fi
 
 echo "Starting server..."
-gunicorn backend.wsgi:application --forwarded-allow-ips="*" --bind 0.0.0.0:8000
+gunicorn rentake.wsgi:application --forwarded-allow-ips="*" --bind 0.0.0.0:8000
 
 #####################################################################################
 # Options to DEBUG Django server
