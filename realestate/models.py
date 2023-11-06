@@ -66,7 +66,7 @@ class Price(models.Model):
 
 
 class Contract(models.Model):
-    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
+    tenants = models.ManyToManyField(Tenant)
     rental_assets = models.ManyToManyField(RentalAsset)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
@@ -76,4 +76,4 @@ class Contract(models.Model):
     file = models.FileField(upload_to="contracts", blank=True, null=True)
 
     def __str__(self):
-        return f"{self.tenant} - {self.rental_assets}"
+        return f"{self.tenants} - {self.rental_assets}"
